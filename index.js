@@ -7,7 +7,7 @@ const keys = require('./config/keys')
 require('./Models/User')
 require('./Services/passport')
 
-// Mongoose connection inc error handling
+// Mongoose connection inc. error handling
 mongoose.connect(keys.mongoURI)
   .then(() => console.log('connected to mongo')) 
   .catch(error => console.error('App starting error: ', error.stack)) 
