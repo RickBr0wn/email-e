@@ -6,6 +6,8 @@ require('./Models/User')
 require('./Services/passport')
 
 mongoose.connect(keys.mongoURI)
+  .then(() => console.log('connected to mongo')) 
+  .catch(error => console.error('App starting error:', error.stack)) 
 
 const app = express()
 
