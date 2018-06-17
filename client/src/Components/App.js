@@ -1,25 +1,36 @@
-import React from 'react'
-import { BrowserRouter, Route } from 'react-router-dom'
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
 
-import Header from './Header'
+class Header extends Component {
+  renderContent() {
+    switch (this.props.auth) {
+      case null:
+        return
+      case false:
+        return <li><a href="/auth/google">Login With Google</a></li>
+      default:
+        return <li><a>Logout</a></li>
+    }
+  }
 
-const Dashboard = () => <div className="container"><h1>Dashboard</h1></div>
-const SurveyNew = () => <div className="container"><h1>SurveyNew</h1></div>
-const Landing = () => <div className="container"><h1>Landing</h1></div>
-
-const App = () => {
-  return (
-    <div>
-      <BrowserRouter>
-        <div>
-          <Header />
-          <Route exact path="/" component={Landing} />
-          <Route exact path="/surveys" component={Dashboard} />
-          <Route path="/surveys/new" component={SurveyNew} />
+  render() {
+    return (
+      <nav>
+        <div className="nav-wrapper">
+          <a className="left brand-logo">
+            Emaily
+          </a>
+          <ul className="right">
+            {this.renderContent()}
+          </ul>
         </div>
-      </BrowserRouter>
-    </div>
-  )
+      </nav>
+    )
+  }
 }
 
-export default App
+function mapStateToProps({ auth }) {
+  return { auth }
+}
+
+export default connect(mapStateToProps)(Header)
