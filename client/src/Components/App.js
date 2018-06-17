@@ -3,9 +3,9 @@ import { BrowserRouter, Route } from 'react-router-dom'
 
 import Header from './Header'
 
-const Dashboard = () => <h1>Dashboard</h1>
-const SurveyNew = () => <h1>SurveyNew</h1>
-const Landing = () => <h1>Landing</h1>
+const Dashboard = () => <div className="container"><h1>Dashboard</h1></div>
+const SurveyNew = () => <div className="container"><h1>SurveyNew</h1></div>
+const Landing = () => <div className="container"><h1>Landing</h1></div>
 
 const App = () => {
   return (
