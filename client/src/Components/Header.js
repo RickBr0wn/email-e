@@ -18,7 +18,7 @@ class Header extends Component {
       <nav>
         <div className="nav-wrapper">
           <a className="left brand-logo">
-            Emaily
+            email-e
           </a>
           <ul className="right">
             {this.renderContent()}
