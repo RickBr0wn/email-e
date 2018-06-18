@@ -2,6 +2,7 @@ const express = require('express')
 const mongoose = require('mongoose')
 const cookieSession = require('cookie-session')
 const passport = require('passport')
+const bodyParser = require('body-parser')
 const keys = require('./config/keys')
 
 require('./Models/User')
@@ -17,6 +18,8 @@ const app = express()
 const thirtyDays = 30*24*60*60*1000
 
 // Middleware
+app.use(bodyParser.json())
+
 app.use(
   cookieSession({
     maxAge: thirtyDays,
@@ -29,6 +32,7 @@ app.use(passport.initialize())
 app.use(passport.session())
 
 require('./Routes/authRoutes')(app)
+require('./Routes/billingRoutes')(app)
 
 // Web Server connection
 const PORT = process.env.PORT || 5000
