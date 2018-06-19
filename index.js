@@ -6,6 +6,7 @@ const bodyParser = require('body-parser')
 const keys = require('./config/keys')
 
 require('./Models/User')
+require('./Models/Survey')
 require('./Services/passport')
 
 // Mongoose connection inc. error handling
