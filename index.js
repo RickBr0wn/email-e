@@ -34,6 +34,7 @@ app.use(passport.session())
 
 require('./Routes/authRoutes')(app)
 require('./Routes/billingRoutes')(app)
+require('./Routes/surveyRoutes')(app)
 
 if(process.env.NODE_ENV === 'production') {
   // Express will serve up production assests
